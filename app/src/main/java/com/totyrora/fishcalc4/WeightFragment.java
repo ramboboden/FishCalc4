@@ -1,7 +1,10 @@
 package com.totyrora.fishcalc4;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.Html;
@@ -11,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,32 +22,16 @@ import android.widget.TextView;
 public class WeightFragment extends Fragment {
 
     private Spinner spices;
-//    private Button calc;
     private EditText length;
     private TextView lengthText;
     private TextView weight;
     private Fish fish;
-    private boolean lengthUnit = false;
-    private boolean weightUnit = false;
+    private boolean imperialUnit = false;
 
 
-    /*
-    public static final String ARG_PAGE = "ARG_PAGE";
-
-
-    public static Fragment newInstance(int page) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
-        WeightFragment fragment = new WeightFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // TODO Get app preference
 
     }
 
@@ -53,6 +39,8 @@ public class WeightFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
+
+        setupPreference ();     // load preferences
 
         setupSpinner(view);     // spices dropdown
         setupTextEdit(view);    // edit length
@@ -71,6 +59,19 @@ public class WeightFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        setupPreference ();     // load preferences
+        displayWeight();        // update text
+    }
+
+    private void setupPreference () {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        imperialUnit = prefs.getBoolean("imperial_unit",false);
+    };
 
     private void setupSpinner (View view) {
         // Spices dropdown menu
@@ -132,7 +133,7 @@ public class WeightFragment extends Fragment {
         if (!tmpStr.isEmpty()) {
             //int tmpLen = Integer.parseInt(length.getText().toString());
             double tmpLenD = Double.parseDouble(length.getText().toString());
-            if(lengthUnit) {
+            if(imperialUnit) {
                 convert = 2.54;
             } else {
                 convert = 1.0;
@@ -146,7 +147,7 @@ public class WeightFragment extends Fragment {
 
     private void displayWeight() {
 
-        if(lengthUnit) {
+        if(imperialUnit) {
             lengthText.setText(getResources().getString(R.string.length_unit_inch));
         } else {
             lengthText.setText(getResources().getString(R.string.length_unit_cm));
@@ -154,7 +155,7 @@ public class WeightFragment extends Fragment {
 
         String tmpUnit;
         double convert = 0;
-        if (weightUnit){
+        if (imperialUnit){
             tmpUnit = getResources().getString(R.string.weight_unit_pound);
             convert = 2.2046;
         }else {
