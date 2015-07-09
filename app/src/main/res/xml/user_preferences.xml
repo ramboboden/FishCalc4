@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/unitTitle"
+        android:key="fish_unit_settings>">
+        <CheckBoxPreference
+            android:key="imperial_unit"
+            android:title="@string/imperialUnit"
+            android:summary="@string/imperialSummery"
+            android:defaultValue="false" />
+            </PreferenceCategory>
+</PreferenceScreen>

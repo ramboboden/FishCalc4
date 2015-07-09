@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">FishCalc4</string>
+
+    //Activity Settings
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="unitTitle">Måttenheter</string>
+    <string name="imperialUnit">Imperial</string>
+    <string name="imperialSummery">Använd tum och pound</string>
+
+    // Tab
+    <string name="tab1">Vikt</string>
+    <string name="tab2">Kondtion</string>
+
+    // Fragment Weight
+    <string name="length_hint">0</string>
+    <string name="length_unit_cm"> cm </string>
+    <string name="length_unit_inch"> inch </string>
+    <string name="weight_unit_kg"> Kg</string>
+    <string name="weight_unit_pound"> lb</string>
+
+    // spices
+    <string-array name="spices_array">
+        <item>Öring</item>
+        <item>Röding</item>
+        <item>Harr</item>
+        <item>Sik</item>
+        <item>Regnbåge</item>
+        <item>Lax</item>
+        <item>Havsöring</item>
+        <item>Gädda</item>
+    </string-array>
+
+    // Settings
+
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
