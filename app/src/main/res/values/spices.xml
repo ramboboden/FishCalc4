@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="k_array">
+        <item>115</item>    //oring
+        <item>115</item>    //roding
+        <item>90</item>     //harr
+        <item>90</item>     //sik
+        <item>115</item>    //Regnbage
+        <item>120</item>    //havsoring
+        <item>95</item>     //lax
+        <item>70</item>     //gadda
+    </integer-array>
+</resources>
