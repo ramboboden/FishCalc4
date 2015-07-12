@@ -10,14 +10,21 @@
 
     // Tab
     <string name="tab1">Vikt</string>
-    <string name="tab2">Kondtion</string>
+    <string name="tab2">Kondition</string>
+
+    // Input
+    <string name="length_hint">0</string>
+    <string name="length_unit_metric">cm</string>
+    <string name="length_unit_imperial">inch</string>
+    <string name="weight_hint">0</string>
+    <string name="weight_unit_metric">Kg</string>
+    <string name="weight_unit_imperial">lb</string>
 
     // Fragment Weight
-    <string name="length_hint">0</string>
-    <string name="length_unit_cm"> cm </string>
-    <string name="length_unit_inch"> inch </string>
-    <string name="weight_unit_kg"> Kg</string>
-    <string name="weight_unit_pound"> lb</string>
+    <string name="result_comment">Estimerad</string>
+
+    // Fragment Health
+    <string name="calc_button">Beräkna</string>
 
     // spices
     <string-array name="spices_array">
@@ -37,6 +44,5 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>

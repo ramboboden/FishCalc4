@@ -21,10 +21,11 @@ import android.widget.TextView;
 
 public class WeightFragment extends Fragment {
 
+    private TextView result;
+    private TextView resultComment;
     private Spinner spices;
     private EditText length;
     private TextView lengthText;
-    private TextView weight;
     private Fish fish;
     private boolean imperialUnit = false;
 
@@ -42,20 +43,18 @@ public class WeightFragment extends Fragment {
 
         setupPreference ();     // load preferences
 
+        // Create TextView and associate to layout
+        result = (TextView) view.findViewById(R.id.result_view);
+        resultComment = (TextView) view.findViewById(R.id.resultComment_view);
+
         setupSpinner(view);     // spices dropdown
         setupTextEdit(view);    // edit length
-
-        // Create TextView and associate to layout
-        weight = (TextView) view.findViewById(R.id.weight_view);
 
         // Create a fish and initialize kArray
         fish = new Fish(0, 0, getResources().getIntArray(R.array.k_array));
 
         // init result view
         displayWeight();
-
-        // Init View
-        //((TextView)view.findViewById(R.id.textView)).setText("Weight is 0.8");
 
         return view;
     }
@@ -129,46 +128,49 @@ public class WeightFragment extends Fragment {
 
     private void getEditLength() {
         String tmpStr = length.getText().toString();
-        double convert;
         if (!tmpStr.isEmpty()) {
-            //int tmpLen = Integer.parseInt(length.getText().toString());
             double tmpLenD = Double.parseDouble(length.getText().toString());
-            if(imperialUnit) {
-                convert = 2.54;
-            } else {
-                convert = 1.0;
-            }
-            if (tmpLenD*convert > 120) {tmpLenD=0.0;} // unrealistic
-            fish.setLen(tmpLenD * convert);
+            fish.setLen(tmpLenD, imperialUnit);
         } else {
-            fish.setLen(0);
+            fish.setLen(0, imperialUnit);
         };
     }
 
     private void displayWeight() {
 
-        if(imperialUnit) {
-            lengthText.setText(getResources().getString(R.string.length_unit_inch));
-        } else {
-            lengthText.setText(getResources().getString(R.string.length_unit_cm));
-        }
-
         String tmpUnit;
-        double convert = 0;
-        if (imperialUnit){
-            tmpUnit = getResources().getString(R.string.weight_unit_pound);
-            convert = 2.2046;
-        }else {
-            tmpUnit = getResources().getString(R.string.weight_unit_kg);
-            convert = 1.0;
+        if(imperialUnit) {
+            lengthText.setText(getResources().getString(R.string.length_unit_imperial));
+            tmpUnit = getResources().getString(R.string.weight_unit_imperial);
+        } else {
+            lengthText.setText(getResources().getString(R.string.length_unit_metric));
+            tmpUnit = getResources().getString(R.string.weight_unit_metric);
         }
 
-        String tmpWeight = String.format("%.2f", convert * fish.getWeight()/1000);
-        String tmpWeightHi = String.format("%.2f", convert * fish.getWeightHi()/1000);
-        String tmpWeightLo = String.format("%.2f", convert * fish.getWeightLo()/1000);
 
-        String resultText = tmpWeightLo +" - <font color='#EE0000'>" + tmpWeight + "</font> - " +  tmpWeightHi + " " + tmpUnit;
+        String tmpWeightHi = String.format("%.2f", fish.getWeightHi(imperialUnit)/1000);
+        String tmpWeightLo = String.format("%.2f", fish.getWeightLo(imperialUnit)/1000);
+        String resultText =
+                tmpWeightLo
+                + " - "
+                + tmpWeightHi
+                + " " + tmpUnit;
+        result.setText(resultText);
+
+        String tmpWeight = String.format("%.2f", fish.getWeight(imperialUnit)/1000);
+        String commentText =
+                getResources().getString(R.string.result_comment)
+                + " " + tmpWeight
+                + " " + tmpUnit;
+        resultComment.setText(commentText);
+
+/*        String resultText = tmpWeightLo
+                + " - <font color='#EE0000'>" + tmpWeight + "</font> - "
+                +  tmpWeightHi
+                + " " + tmpUnit;
         weight.setText(Html.fromHtml(resultText));
+*/
+
     }
 
 
