@@ -18,12 +18,15 @@ public class Fish {
     private double pd = 2.2046;
     private double k;
     private int[] kArray;
+    private int[] hArray;
     private int spices;
+    private int referenceSpices = 0;
     private double sd = 0.15;
 
 
-    public Fish(int startLen, int startSpices, int[] initArr) {
-        kArray = initArr;
+    public Fish(int startLen, int startSpices, int[] initKArr, int[] initHArr) {
+        kArray = initKArr;
+        hArray = initHArr;
         setLen(startLen, false);
         setSpices(startSpices);
         calcWeight();
@@ -59,7 +62,17 @@ public class Fish {
         } else {
             k = 100 * weight / Math.pow(len, 3);
         }
+    }
 
+    public int calcConditionState(){
+        int hState = 0;
+        double tmpLimit;
+        for (int i = 0; i < hArray.length; i ++) {
+            tmpLimit = (hArray[i] / 100.0) * ((kArray[spices]/100.0)/(kArray[referenceSpices]/100.0));
+            if (k > tmpLimit)
+                hState = i;
+        }
+        return hState;
     }
 
     public void setLen (double inLen, boolean imperial) {

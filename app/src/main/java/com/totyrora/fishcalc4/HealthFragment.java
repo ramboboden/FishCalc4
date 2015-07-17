@@ -20,6 +20,7 @@ public class HealthFragment extends Fragment {
 
     private TextView result;
     private TextView resultComment;
+    private String[] resultState;
     private Spinner spices;
     private EditText length;
     private TextView lengthText;
@@ -47,6 +48,7 @@ public class HealthFragment extends Fragment {
         // Create TextView and associate to layout
         result = (TextView) view.findViewById(R.id.result_view);
         resultComment = (TextView) view.findViewById(R.id.resultComment_view);
+        resultState = getResources().getStringArray(R.array.health_array);
 
         // spices
         setupSpinner(view);     // spices dropdown
@@ -64,7 +66,9 @@ public class HealthFragment extends Fragment {
         setupButton(view);
 
         // Create a fish and initialize kArray
-        fish = new Fish(0, 0, getResources().getIntArray(R.array.k_array));
+        fish = new Fish(0, 0,
+                getResources().getIntArray(R.array.k_array),
+                getResources().getIntArray(R.array.h_array));
 
         // init result view
         displayCondition();
@@ -159,22 +163,19 @@ public class HealthFragment extends Fragment {
             weightText.setText(getResources().getString(R.string.weight_unit_metric));
         }
 
-        //        String tmpWeight = String.format("%.2f", fish.getWeight(imperialUnit)/1000);
-        //        String tmpLen = String.format("%.2f", fish.getLen(imperialUnit));
-
-        //TODO move text to string
-        // get condition
+        // Result
         String tmpCond = String.format("%.2f", fish.getCondition());
-        String resultText = "Konditionsfaktor:  "
+        String resultText = getResources().getString(R.string.h_result)
+                + " "
                 + tmpCond;
         result.setText(resultText);
 
-        // TODO add estimate
-        String tmpEst = "fläskig";
-        String commentText = "Vilket är "
+        // Result comment
+        String tmpEst = resultState[fish.calcConditionState()];
+        String commentText = getResources().getString(R.string.h_result_comment)
+                + " "
                 + tmpEst;
         resultComment.setText(commentText);
-
 
     }
 

@@ -21,10 +21,12 @@
     <string name="weight_unit_imperial">lb</string>
 
     // Fragment Weight
-    <string name="result_comment">Estimerad</string>
+    <string name="w_result_comment">Estimerad</string>
 
     // Fragment Health
     <string name="calc_button">Beräkna</string>
+    <string name="h_result">Konditionsfaktor:</string>
+    <string name="h_result_comment">Vilket är</string>
 
     // spices
     <string-array name="spices_array">
@@ -33,16 +35,23 @@
         <item>Harr</item>
         <item>Sik</item>
         <item>Regnbåge</item>
-        <item>Lax</item>
         <item>Havsöring</item>
+        <item>Lax</item>
         <item>Gädda</item>
+    </string-array>
+
+    // health
+    <string-array name="health_array">
+        <item>...</item>
+        <item>Extremt dåligt</item>
+        <item>Dålig</item>
+        <item>God</item>
+        <item>Mycket god</item>
+        <item>Extremt god</item>
+        <item>...</item>
     </string-array>
 
     // Settings
 
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_world">Hello world!</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

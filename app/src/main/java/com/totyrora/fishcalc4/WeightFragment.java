@@ -51,7 +51,9 @@ public class WeightFragment extends Fragment {
         setupTextEdit(view);    // edit length
 
         // Create a fish and initialize kArray
-        fish = new Fish(0, 0, getResources().getIntArray(R.array.k_array));
+        fish = new Fish(0, 0,
+                getResources().getIntArray(R.array.k_array),
+                getResources().getIntArray(R.array.h_array));
 
         // init result view
         displayWeight();
@@ -159,7 +161,7 @@ public class WeightFragment extends Fragment {
 
         String tmpWeight = String.format("%.2f", fish.getWeight(imperialUnit)/1000);
         String commentText =
-                getResources().getString(R.string.result_comment)
+                getResources().getString(R.string.w_result_comment)
                 + " " + tmpWeight
                 + " " + tmpUnit;
         resultComment.setText(commentText);

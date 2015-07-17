@@ -10,4 +10,15 @@
         <item>95</item>     //lax
         <item>70</item>     //gadda
     </integer-array>
+
+    <integer-array name="h_array">
+        <item>0</item>      //TOO LOW
+        <item>70</item>     //Extreme poor
+        <item>90</item>     //Poor
+        <item>110</item>    //Fair
+        <item>130</item>    //Good
+        <item>150</item>    //Extreme good
+        <item>180</item>    //TOO HIGH
+    </integer-array>
+
 </resources>
