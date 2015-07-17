@@ -21,12 +21,16 @@
     <string name="weight_unit_imperial">lb</string>
 
     // Fragment Weight
-    <string name="w_result_comment">Estimerad</string>
+    <string name="w_result">Normalt</string>
+    <string name="w_result_comment">Uppskattad:</string>
+    <string name="w_result_non_valid">...</string>
+
 
     // Fragment Health
     <string name="calc_button">Beräkna</string>
     <string name="h_result">Konditionsfaktor:</string>
-    <string name="h_result_comment">Vilket är</string>
+    <string name="h_result_comment">Den är</string>
+    <string name="h_result_non_valid">...</string>
 
     // spices
     <string-array name="spices_array">
@@ -43,11 +47,11 @@
     // health
     <string-array name="health_array">
         <item>...</item>
-        <item>Extremt dåligt</item>
-        <item>Dålig</item>
-        <item>God</item>
-        <item>Mycket god</item>
-        <item>Extremt god</item>
+        <item>extremt smal</item>
+        <item>smal</item>
+        <item>normal</item>
+        <item>fet</item>
+        <item>extremt fet</item>
         <item>...</item>
     </string-array>
 

@@ -165,7 +165,12 @@ public class HealthFragment extends Fragment {
 
         // Result
         String tmpCond = String.format("%.2f", fish.getCondition());
-        String resultText = getResources().getString(R.string.h_result)
+        double tmp = fish.getCondition();
+        if (tmp == 0.0) {
+            tmpCond = getResources().getString(R.string.w_result_non_valid);
+        }
+        String resultText =
+                getResources().getString(R.string.h_result)
                 + " "
                 + tmpCond;
         result.setText(resultText);

@@ -149,17 +149,32 @@ public class WeightFragment extends Fragment {
             tmpUnit = getResources().getString(R.string.weight_unit_metric);
         }
 
-
+        // Result
         String tmpWeightHi = String.format("%.2f", fish.getWeightHi(imperialUnit)/1000);
         String tmpWeightLo = String.format("%.2f", fish.getWeightLo(imperialUnit)/1000);
+        double tmpRes = 0.0;
+        tmpRes = fish.getWeightHi(imperialUnit)/1000;   // if undefined
+        if (tmpRes == 0.0) {
+            tmpWeightHi = getResources().getString(R.string.w_result_non_valid);
+            tmpWeightLo = getResources().getString(R.string.w_result_non_valid);
+        }
+        //String tmpWeightHi = String.format("%.2f", fish.getWeightHi(imperialUnit)/1000);
+        //String tmpWeightLo = String.format("%.2f", fish.getWeightLo(imperialUnit)/1000);
         String resultText =
-                tmpWeightLo
+                getResources().getString(R.string.w_result)
+                + " "
+                + tmpWeightLo
                 + " - "
                 + tmpWeightHi
                 + " " + tmpUnit;
         result.setText(resultText);
 
-        String tmpWeight = String.format("%.2f", fish.getWeight(imperialUnit)/1000);
+        // Result comment
+        String tmpWeight = String.format("%.1f", fish.getWeight(imperialUnit)/1000);
+        tmpRes = fish.getWeight(imperialUnit)/1000;   // if undefined
+        if (tmpRes == 0.0) {
+            tmpWeight = getResources().getString(R.string.w_result_non_valid);
+        }
         String commentText =
                 getResources().getString(R.string.w_result_comment)
                 + " " + tmpWeight
