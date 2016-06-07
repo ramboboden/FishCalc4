@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.text.Html;
+//import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +15,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 
 public class HealthFragment extends Fragment {
 
     private TextView result;
+    private TextView resultValue;
     private TextView resultComment;
     private String[] resultState;
     private Spinner spices;
@@ -47,6 +50,7 @@ public class HealthFragment extends Fragment {
 
         // Create TextView and associate to layout
         result = (TextView) view.findViewById(R.id.result_view);
+        resultValue = (TextView) view.findViewById(R.id.resultValue_view);
         resultComment = (TextView) view.findViewById(R.id.resultComment_view);
         resultState = getResources().getStringArray(R.array.health_array);
 
@@ -87,7 +91,7 @@ public class HealthFragment extends Fragment {
     private void setupPreference () {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         imperialUnit = prefs.getBoolean("imperial_unit",false);
-    };
+    }
 
     private void setupSpinner (View view) {
         // Spices dropdown menu
@@ -97,8 +101,8 @@ public class HealthFragment extends Fragment {
         speciesArray = getResources().getStringArray(R.array.spices_array);
 
         // create dropdown spinner as array adapter
-        ArrayAdapter<String> spicesAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, speciesArray);
-        spicesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> spicesAdapter = new ArrayAdapter<String>(getActivity(),R.layout.fish_spinner_item, speciesArray);
+        spicesAdapter.setDropDownViewResource(R.layout.fish_spinner_dropdown_item);
 
         spices = (Spinner) view.findViewById(R.id.spices_spinner);
         spices.setAdapter(spicesAdapter);
@@ -134,7 +138,7 @@ public class HealthFragment extends Fragment {
                     fish.setLen(tmpLenD, imperialUnit);
                 } else {
                     fish.setLen(0, imperialUnit);
-                };
+                }
 
                 // get weight
                 tmpStr = weight.getText().toString();
@@ -143,7 +147,7 @@ public class HealthFragment extends Fragment {
                     fish.setWeight(tmpWeiD*1000, imperialUnit);
                 } else {
                     fish.setWeight(0, imperialUnit);
-                };
+                }
 
                 displayCondition();
 
@@ -154,7 +158,6 @@ public class HealthFragment extends Fragment {
 
     private void displayCondition() {
 
-        String tmpUnit;
         if(imperialUnit) {
             lengthText.setText(getResources().getString(R.string.length_unit_imperial));
             weightText.setText(getResources().getString(R.string.weight_unit_imperial));
@@ -163,17 +166,20 @@ public class HealthFragment extends Fragment {
             weightText.setText(getResources().getString(R.string.weight_unit_metric));
         }
 
-        // Result
-        String tmpCond = String.format("%.2f", fish.getCondition());
+        // Result Text
+        String resultText =
+                getResources().getString(R.string.h_result)
+                        + " ";
+        result.setText(resultText);
+
+        // Result Value
+        String tmpCond = String.format(Locale.getDefault(),"%.2f", fish.getCondition());
         double tmp = fish.getCondition();
         if (tmp == 0.0) {
             tmpCond = getResources().getString(R.string.w_result_non_valid);
         }
-        String resultText =
-                getResources().getString(R.string.h_result)
-                + " "
-                + tmpCond;
-        result.setText(resultText);
+        String tempValue = tmpCond;
+        resultValue.setText(tempValue);
 
         // Result comment
         String tmpEst = resultState[fish.calcConditionState()];

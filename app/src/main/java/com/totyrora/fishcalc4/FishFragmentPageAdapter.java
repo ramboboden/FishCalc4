@@ -1,18 +1,21 @@
 package com.totyrora.fishcalc4;
 
 import android.content.Context;
-import android.os.Bundle;
+//import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * Created by thomas on 15-07-08.
+ *
+ * Fish Estimation
+ *
  */
 public class FishFragmentPageAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 2;
-    private String tabTitles[] = new String[] {"Tab1", "Tab2" };
-    private Context context;
+    private final String[] tabTitles = new String[] {"Tab1", "Tab2" };
+    private final Context context;
 
     public FishFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);

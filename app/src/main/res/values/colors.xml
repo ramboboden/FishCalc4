@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="window_background">#616161</color>
 
-    <color name="my_primary">#FF5722</color>
-    <color name="my_primary_dark">#D84315</color>
-    <color name="my_primary_light">#616161</color>
-    <color name="my_accent">#2196F3</color>
-    <color name="my_primary_text">#ffffff</color>
-    <color name="my_secondary_text">#ffffff</color>
-    <color name="my_icons">#FFFFFF</color>
-    <color name="my_divider">#B6B6B6</color>
+    <color name="NavigationBar">#212df3</color>
+    <color name="WindowBackground">#ffffff</color>
+
+    <color name="HeadingBar">#2196f3</color>
+    <color name="HeadText">#ffffff</color>
+    <color name="HeadText_background">#0090ff</color>
+
+    <color name="TabBar">#2196f3</color>
+    <color name="TabText">#dddddd</color>
+    <color name="TabText_background">#888888</color>
+    <color name="TabTextSelIndicator">#ffffff</color>
+    <color name="TabSelIndicator">#FF6F00</color>
+
+    <color name="FragmentBackground">#ffffff</color>
+
+    <!--color name="Wiewpager_background">#774477</color-->
+    <!--color name="WidgetToolbar_background">#ff00ff</color-->
+
+    <color name="CalcText">#555555</color>
+    <color name="CalcTextResult">#FF6F00</color>
+
+    <color name="CalcInputText">#555555</color>
+    <color name="CalcInputEditText">#000000</color>
+    <color name="CalcInputEdit_background">#eefbfe</color>
+    <color name="CalcInputHighlight">#FF6F00</color>
+
+    <color name="FishSpinnerItem">#212df3</color>
+    <color name="FishSpinner_background">#eefbfe</color>
+    <color name="FishSpinnerDrop">#212df3</color>
+
+    <color name="CalcButton">#ffbd89</color>
+    <color name="CalcButton_background">#eefbfe</color>
+    <color name="CalcButton_shadow">#000000</color>
+
+
+    <color name="SettingHead">#FF6F00</color>
+    <color name="SettingText">#212df3</color>
+    <color name="SettingHint">#aaaaaa</color>
+    <color name="Setting_background">#ffffff</color>
+
+
+
 </resources>

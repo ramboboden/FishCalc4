@@ -1,7 +1,7 @@
 package com.totyrora.fishcalc4;
 
 
-import android.content.Context;
+//import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -18,11 +18,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 
 public class WeightFragment extends Fragment {
 
     private TextView result;
+    private TextView resultValue;
     private TextView resultComment;
+    private TextView resultCommentValue;
     private Spinner spices;
     private EditText length;
     private TextView lengthText;
@@ -45,7 +49,9 @@ public class WeightFragment extends Fragment {
 
         // Create TextView and associate to layout
         result = (TextView) view.findViewById(R.id.result_view);
+        resultValue = (TextView) view.findViewById(R.id.resultValue_view);
         resultComment = (TextView) view.findViewById(R.id.resultComment_view);
+        resultCommentValue = (TextView) view.findViewById(R.id.resultCommentValue_view);
 
         setupSpinner(view);     // spices dropdown
         setupTextEdit(view);    // edit length
@@ -72,7 +78,7 @@ public class WeightFragment extends Fragment {
     private void setupPreference () {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         imperialUnit = prefs.getBoolean("imperial_unit",false);
-    };
+    }
 
     private void setupSpinner (View view) {
         // Spices dropdown menu
@@ -82,8 +88,8 @@ public class WeightFragment extends Fragment {
         speciesArray = getResources().getStringArray(R.array.spices_array);
 
         // create dropdown spinner as array adapter
-        ArrayAdapter<String> spicesAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, speciesArray);
-        spicesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> spicesAdapter = new ArrayAdapter<String>(getActivity(),R.layout.fish_spinner_item, speciesArray);
+        spicesAdapter.setDropDownViewResource(R.layout.fish_spinner_dropdown_item);
 
         spices = (Spinner) view.findViewById(R.id.spices_spinner);
         spices.setAdapter(spicesAdapter);
@@ -135,7 +141,7 @@ public class WeightFragment extends Fragment {
             fish.setLen(tmpLenD, imperialUnit);
         } else {
             fish.setLen(0, imperialUnit);
-        };
+        }
     }
 
     private void displayWeight() {
@@ -149,44 +155,42 @@ public class WeightFragment extends Fragment {
             tmpUnit = getResources().getString(R.string.weight_unit_metric);
         }
 
-        // Result
-        String tmpWeightHi = String.format("%.2f", fish.getWeightHi(imperialUnit)/1000);
-        String tmpWeightLo = String.format("%.2f", fish.getWeightLo(imperialUnit)/1000);
-        double tmpRes = 0.0;
-        tmpRes = fish.getWeightHi(imperialUnit)/1000;   // if undefined
+        // Result Text
+        String resultText =
+                getResources().getString(R.string.w_result)
+                        + ":";
+        result.setText(resultText);
+
+        // Result Value
+        String tmpWeightHi = String.format(Locale.getDefault(),"%.2f", fish.getWeightHi(imperialUnit)/1000);
+        String tmpWeightLo = String.format(Locale.getDefault(),"%.2f", fish.getWeightLo(imperialUnit)/1000);
+        /* double tmpRes = 0.0; */
+        double tmpRes = fish.getWeightHi(imperialUnit)/1000;   // if undefined
         if (tmpRes == 0.0) {
             tmpWeightHi = getResources().getString(R.string.w_result_non_valid);
             tmpWeightLo = getResources().getString(R.string.w_result_non_valid);
         }
-        //String tmpWeightHi = String.format("%.2f", fish.getWeightHi(imperialUnit)/1000);
-        //String tmpWeightLo = String.format("%.2f", fish.getWeightLo(imperialUnit)/1000);
-        String resultText =
-                getResources().getString(R.string.w_result)
-                + " "
-                + tmpWeightLo
-                + " - "
-                + tmpWeightHi
-                + " " + tmpUnit;
-        result.setText(resultText);
+        String resultValueText =
+                " " + tmpWeightLo
+                + " - " + tmpWeightHi;
+        resultValue.setText(resultValueText);
 
         // Result comment
-        String tmpWeight = String.format("%.1f", fish.getWeight(imperialUnit)/1000);
+        String commentText =
+                getResources().getString(R.string.w_result_comment)
+                        + " [" + tmpUnit + "]:";
+        resultComment.setText(commentText);
+
+        // Result comment value
+        String tmpWeight = String.format(Locale.getDefault(),"%.1f", fish.getWeight(imperialUnit)/1000);
         tmpRes = fish.getWeight(imperialUnit)/1000;   // if undefined
         if (tmpRes == 0.0) {
             tmpWeight = getResources().getString(R.string.w_result_non_valid);
         }
-        String commentText =
-                getResources().getString(R.string.w_result_comment)
-                + " " + tmpWeight
-                + " " + tmpUnit;
-        resultComment.setText(commentText);
+        String commentValueText =
+                " " + tmpWeight;
+        resultCommentValue.setText(Html.fromHtml(commentValueText));
 
-/*        String resultText = tmpWeightLo
-                + " - <font color='#EE0000'>" + tmpWeight + "</font> - "
-                +  tmpWeightHi
-                + " " + tmpUnit;
-        weight.setText(Html.fromHtml(resultText));
-*/
 
     }
 

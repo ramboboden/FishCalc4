@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">FishCalc</string>
+    //Activity Settings
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="unitTitle">Metrics</string>
+    <string name="imperialUnit">Imperial</string>
+    <string name="imperialSummery">Bruk inches og pounds</string>
+
+    // Tab
+    <string name="tab1">Vekt</string>
+    <string name="tab2">Tilstand</string>
+
+    // Input
+    <string name="length_hint">0</string>
+    <string name="length_unit_metric">cm</string>
+    <string name="length_unit_imperial">inch</string>
+    <string name="weight_hint">0</string>
+    <string name="weight_unit_metric">Kg</string>
+    <string name="weight_unit_imperial">lb</string>
+
+    // Fragment Weight
+    <string name="w_result">Normal variasjon</string>
+    <string name="w_result_comment">Estimert</string>
+    <string name="w_result_non_valid">...</string>
+
+
+    // Fragment Health
+    <string name="calc_button">Beregn</string>
+    <string name="h_result">Fultons kondisjonsfaktor:</string>
+    <string name="h_result_comment">Fisken er</string>
+    <string name="h_result_non_valid">...</string>
+
+    // spices
+    <string-array name="spices_array">
+        <item>Ørret</item>
+        <item>Røye</item>
+        <item>Harr</item>
+        <item>Sik</item>
+        <item>Regnbueørret</item>
+        <item>Sjøørret</item>
+        <item>Laks</item>
+        <item>Gjedde</item>
+    </string-array>
+
+    // health "Fisken er"
+    <string-array name="health_array">
+        <item>trolig død!</item>
+        <item>i ekstremt dårlig forfatning.</item>
+        <item>lett underernært.</item>
+        <item>velstående.</item>
+        <item>mye velstående.</item>
+        <item>ekstremt velstående.</item>
+        <item>sannsynligvis fantasy!</item>
+    </string-array>
+
+    // Settings
+
+
+</resources>

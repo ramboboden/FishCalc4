@@ -5,20 +5,40 @@
     android:gravity="top"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/result_view"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/result_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="@style/CalcResultText"/>
+
+        <TextView
+            android:id="@+id/resultValue_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="start"
+            style="@style/CalcResultText.value"/>
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/resultComment_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp"/>
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        style="@style/CalcResultText.Info"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -36,15 +56,14 @@
             android:layout_gravity="center_horizontal"
             android:entries="@array/spices_array" />
 
-
         <EditText
             android:id="@+id/length_edit"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxLength="4"
-            android:textSize="20sp"
+            style="@style/CalcInputText.Edit"
             android:gravity="end"
+            android:maxLength="4"
             android:hint="@string/length_hint"
             android:inputType="numberDecimal" />
 
@@ -54,16 +73,16 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:text="@string/length_unit_metric"
-            android:textSize="20sp" />
+            style="@style/CalcInputText"
+            android:text="@string/length_unit_metric"/>
 
         <EditText
             android:id="@+id/weight_edit"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/CalcInputText.Edit"
             android:maxLength="4"
-            android:textSize="20sp"
             android:gravity="end"
             android:hint="@string/length_hint"
             android:inputType="numberDecimal" />
@@ -74,16 +93,17 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:text="@string/length_unit_metric"
-            android:textSize="20sp" />
-
+            style="@style/CalcInputText"
+            android:text="@string/length_unit_metric"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/calc_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        style="@style/CalcButtonText"
         android:text="@string/calc_button" />
-
 
 </LinearLayout>

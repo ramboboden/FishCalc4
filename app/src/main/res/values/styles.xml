@@ -1,44 +1,155 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <!-- "Theme.AppCompat.Light.DarkActionBar" -->
-    <!-- @android:style/Theme.Material.Light.DarkActionBar - Require Android 5-->
-    <!-- @android:style/Theme.Holo.Light.DarkActionBar - cannot be used with tab due to compact v7-->
-
-    <!--
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    </style>
-    -->
-
+<!--
     <style name="AppTheme" parent="Base.Theme.MyDesign">
     </style>
+-->
 
-    <style name="Base.Theme.MyDesign" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#80CBC4</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/NavigationBar</item>
+        <item name="colorPrimary">@color/HeadingBar</item>
+        <item name="android:windowBackground">@color/TabBar</item>
+        <item name="android:textColorPrimary">@color/HeadText</item>
+        <!--item name="android:colorBackground">@color/TabBar</item-->
+    </style>
 
-        <!--
-        <item name="android:icon">@drawable/ic_char_bar</item>
-
-                <item name="colorPrimary">#1565C0</item>
-                <item name="android:textColorPrimary">#FFFFFF</item>
-                <item name="android:textColorSecondary">#BDBDBD</item>
-
-                <item name="android:textColorPrimary">#FFFFFF</item>
-                <item name="android:textColorSecondary">#616161</item>
-
-
-                <item name="android:textColorPrimary">#FFFFFF</item>
-                <item name="android:textColorSecondary">#616161</item>
-
-                <item name="android:colorBackground">#64B5F6</item>
-                <item name="colorAccent">#FF6F00</item>
-                <item name="android:textColorSecondary">#000000</item>
-                <item name="android:windowBackground">#E0E0E0</item>
-        -->
+    <style name="HeadStyle">
+        <item name="android:background">@color/HeadingBar</item>
     </style>
 
     <style name="TabTheme" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">#FF6F00</item>
+        <item name="tabIndicatorColor">@color/TabSelIndicator</item>
+        <item name="tabMaxWidth">@dimen/tab_max_width</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabPaddingStart">6dp</item>
+        <item name="tabPaddingEnd">6dp</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/TabTextSelIndicator</item>
+        <!--item name="tabBackground">@color/TabBar</item-->
+        <!--item name="background">@color/TabBar</item-->
     </style>
+
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/TabText</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="FragmentStyle">
+      <item name="android:background">@color/FragmentBackground</item>
+    </style>
+
+
+    <style name="CalcResultText">
+        <item name="android:textColor">@color/CalcText</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="CalcResultText.value">
+        <item name="android:textColor">@color/CalcTextResult</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="CalcResultText.value.small">
+        <item name="android:textColor">@color/CalcTextResult</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="CalcResultText.Info">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>s
+
+
+    <style name="FishSpinnerItemText">
+        <item name="android:background">@color/FishSpinner_background</item>
+        <item name="android:textColor">@color/FishSpinnerItem</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="FishSpinnerDropText">
+        <item name="android:background">@color/FishSpinner_background</item>
+        <item name="android:textColor">@color/FishSpinnerDrop</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="CalcInputText">
+        <item name="android:textColor">@color/CalcInputText</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="CalcInputText.Edit">
+        <item name="android:background">@color/CalcInputEdit_background</item>
+        <item name="android:textColor">@color/CalcInputEditText</item>
+        <item name="android:editTextColor">@color/CalcInputHighlight</item>
+    </style>s
+
+    <style name="CalcButtonText">
+        <item name="android:background">@color/CalcButton_background</item>
+        <item name="android:textColor">@color/CalcButton</item>
+        <item name="android:textSize">30dp</item>s
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:radius">10dp</item>
+
+        <item name="android:shadowColor">@color/CalcButton_shadow</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius" >2</item>
+    </style>
+
+
+    <style name="PrefsTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/NavigationBar</item>
+        <item name="android:windowBackground">@color/Setting_background</item>
+        <item name="android:textColorPrimary">@color/SettingText</item>
+        <item name="android:textColorSecondary">@color/SettingHint</item>
+        <!--item name="android:background">@color/Setting_background</item-->
+        <!--item name="android:textColor">@color/SettingText</item-->
+        <!--item name="android:listViewStyle">@style/listViewPrefs</item-->
+    </style>
+
+    <!--style name="listViewPrefs" parent="@android:style/Widget.ListView"-->
+        <!--item name="android:background">@color/Setting_background</item-->
+        <!--item name="android:textColor">@color/SettingText</item-->
+        <!--item name="android:textColorPrimary">@color/SettingHead</item-->
+        <!--item name="android:textColorSecondary">@color/SettingHint</item-->
+        <!--item name="android:cacheColorHint">@color/SettingHint</item-->
+    <!--/style-->
+
+
+    <!--style name="SettingsText">
+        <item name="android:background">@color/Setting_background</item>
+        <item name="android:co">@color/SettingText</item>
+        <item name="android:textColor">@color/SettingText</item>
+        <item name="android:textSize">20dp</item>
+    </style-->
+
+    <!--
+<style name="Base.Theme.MyDesign" parent="Theme.AppCompat.Light.NoActionBar">
+
+          <item name="tabBackground">?attr/selectableItemBackground</item>
+
+    <item name="colorPrimary">@color/HeadText_background</item>
+    <item name="android:icon">@drawable/ic_char_bar</item>
+
+            <item name="colorPrimary">#1565C0</item>
+            <item name="android:textColorPrimary">#FFFFFF</item>
+            <item name="android:textColorSecondary">#BDBDBD</item>
+
+            <item name="android:textColorPrimary">#FFFFFF</item>
+            <item name="android:textColorSecondary">#616161</item>
+
+
+            <item name="android:textColorPrimary">#FFFFFF</item>
+            <item name="android:textColorSecondary">#616161</item>
+
+            <item name="android:colorBackground">#64B5F6</item>
+            <item name="colorAccent">#FF6F00</item>
+            <item name="android:textColorSecondary">#000000</item>
+            <item name="android:windowBackground">#E0E0E0</item>
+    </style>
+   -->
+
 
 </resources>

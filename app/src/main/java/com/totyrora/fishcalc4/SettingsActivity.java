@@ -1,10 +1,12 @@
 package com.totyrora.fishcalc4;
 
-import android.app.Activity;
+
+
+//import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+//import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+//import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        //TODO fix actionbar (dont need this)
+        //TODO fix actionbar (don't need this)
         //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Assign Toolbar as ActionBar

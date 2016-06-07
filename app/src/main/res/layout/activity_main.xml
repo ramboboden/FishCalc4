@@ -9,7 +9,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"/>
+        style="@style/HeadStyle"/>
+        <!--android:background="@color/WidgetToolbar_background"/-->
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
@@ -23,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
-        android:background="@android:color/white" />
+        style="@style/FragmentStyle" />
+        <!-- android:background="@color/Wiewpager_background" /-->
 
 </LinearLayout>

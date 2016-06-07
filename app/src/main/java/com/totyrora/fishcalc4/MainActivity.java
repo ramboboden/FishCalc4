@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+
 // FragmentActivity replaced by AppCompatActivity
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(MainActivity.this);
         imperialUnit = prefs.getBoolean("imperial_unit",false);
-    };
+    }
 
     private void setupToolBar () {
         // Use Toolbar as the ActionBar
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Use logos ActionBar with actions
         final ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setDisplayShowHomeEnabled(true);
         ab.setLogo(R.mipmap.ic_char_white);
         ab.setDisplayUseLogoEnabled(true);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Action Settings Menu is inflated by onCreateOptionsMenu
 
-    };
+    }
 
     private void setupTabLayout () {
 
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             tab.setText(tabTitles[i]);
         }
 
-    };
+    }
 
     @Override
     protected void onResume(){
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    };
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
