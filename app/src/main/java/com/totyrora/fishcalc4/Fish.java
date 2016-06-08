@@ -7,7 +7,7 @@ package com.totyrora.fishcalc4;
  *
  */
 
-public class Fish {
+class Fish {
 
     //TODO add a out-of-range state that can be used
 

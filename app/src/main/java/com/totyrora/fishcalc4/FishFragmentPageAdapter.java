@@ -12,8 +12,8 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Fish Estimation
  *
  */
-public class FishFragmentPageAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 2;
+class FishFragmentPageAdapter extends FragmentPagerAdapter {
+    private final int PAGE_COUNT = 2;
     private final String[] tabTitles = new String[] {"Tab1", "Tab2" };
     private final Context context;
 
